@@ -11,4 +11,14 @@ services:
       - RABBIT_HOST=rabbitmq
     depends_on:
       - rabbitmq
+  proxy-api:
+    build: ./proxy-api
+    environment:
+      - PORT=4000
+      - SECRET_KEY_BASE
+      - RABBIT_HOST=rabbitmq
+    depends_on:
+      - rabbitmq
+    ports:
+      - 14000:4000
 
