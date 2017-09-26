@@ -23,6 +23,7 @@ RUN chown -Rh deploy /home/deploy
 USER deploy
 WORKDIR /home/deploy/app
 RUN mix local.hex --force && \
+    mix local.rebar --force && \
     mix deps.get && \
     mix compile
 
